@@ -1,6 +1,7 @@
 package com.resourcium1.controllers;
 
 import com.resourcium1.dao.UserDao;
+import com.resourcium1.models.User;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -18,13 +19,15 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
-        if (UserDao.check(username, password)) {
+        User user = UserDao.check(username, password);
+        if (user != null) {
             HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-            response.sendRedirect("dashboard");
+            session.setAttribute("user", user);
+            response.sendRedirect("me");
         } else {
             response.sendRedirect("index.jsp");
         }
     }
+
+
 }

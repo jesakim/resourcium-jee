@@ -30,6 +30,14 @@ public class User {
         // Default constructor
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
@@ -39,6 +47,14 @@ public class User {
     // Getter and Setter methods (omitted for brevity)
 
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -47,5 +63,9 @@ public class User {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    public void setPassword(String newPassword) {
+        this.password = newPassword;
     }
 }

@@ -20,7 +20,7 @@ public class UserDao {
         entityManagerFactory.close();
     }
 
-    public static boolean check(String userName, String password){
+    public static User check(String userName, String password){
         try {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
@@ -38,10 +38,23 @@ public class UserDao {
 
         System.out.println(user);
 
-        return user.getPassword().equals(password);
+        return user.getPassword().equals(password) ? user : null;
         }catch (Exception e){
             System.out.println("User with username " + userName + " not found.");
-            return false;
+            return null;
         }
+    }
+
+    public static void update(User user){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+
+        entityManager.merge(user);
+
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        entityManagerFactory.close();
     }
 }

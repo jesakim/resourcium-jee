@@ -1,11 +1,7 @@
 
 <%@page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags/layouts" %>
-<html>
-<head>
-    <title>login-success</title>
-</head>
-<body>
+
 
 <t:layout>
     <jsp:body>
@@ -14,5 +10,3 @@
     </jsp:body>
 </t:layout>
 
-</body>
-</html>
