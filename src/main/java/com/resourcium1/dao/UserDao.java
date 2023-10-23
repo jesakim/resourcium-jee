@@ -38,7 +38,7 @@ public class UserDao {
 
         System.out.println(user);
 
-        return user.getPassword().equals(password) ? user : null;
+        return user.verifyPassword(password) ? user : null;
         }catch (Exception e){
             System.out.println("User with username " + userName + " not found.");
             return null;

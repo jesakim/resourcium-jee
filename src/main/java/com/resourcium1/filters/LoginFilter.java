@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/dashboard","/me"}) // Define the URL pattern to filter
+@WebFilter(urlPatterns = {"/dashboard","/me","/logout"}) // Define the URL pattern to filter
 public class LoginFilter implements Filter {
 
     @Override

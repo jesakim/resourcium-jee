@@ -15,6 +15,9 @@
     %>
 
     <h1>Welcome, <a href="me" ><%= user.getUsername() %> </a> !</h1>
+    <form action="logout" method="post">
+        <input type="submit" value="Logout" class="btn btn-danger" />
+    </form>
 </div>
 
 <div id="content">

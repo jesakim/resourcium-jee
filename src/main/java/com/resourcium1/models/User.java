@@ -1,6 +1,7 @@
 package com.resourcium1.models;
 
 import jakarta.persistence.*;
+import org.mindrot.jbcrypt.BCrypt;
 
 @Entity
 @Table(name = "user")
@@ -40,7 +41,7 @@ public class User {
 
     public User(String username, String password, String email) {
         this.username = username;
-        this.password = password;
+        setPassword(password);
         this.email = email;
     }
 
@@ -66,6 +67,10 @@ public class User {
     }
 
     public void setPassword(String newPassword) {
-        this.password = newPassword;
+        this.password = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+    }
+
+    public boolean verifyPassword(String plainTextPassword) {
+        return BCrypt.checkpw(plainTextPassword, this.password);
     }
 }
