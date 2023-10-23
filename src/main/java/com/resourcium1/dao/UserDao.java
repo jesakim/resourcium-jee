@@ -5,8 +5,14 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+/**
+ * This class is used to perform CRUD operations on the database table corresponding to the User model.
+ */
 public class UserDao {
-
+    /**
+     * Saves a user to the database.
+     * @param user The user to be saved.
+     */
     public static void save(User user){
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
