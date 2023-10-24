@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
-//@Entity
+@Entity
 @Table(name = "equipments")
 public class Equipment {
     @Id
@@ -12,9 +12,22 @@ public class Equipment {
 
     private String name;
     private String type;
-    private Date purchaseDate;
-    private Date maintenanceDate;
-    private String status;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
 //    @ManyToOne
 //    @JoinColumn(name = "department_id")
