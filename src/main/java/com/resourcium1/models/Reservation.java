@@ -11,10 +11,15 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+
     private Date startDate;
     private Date endDate;
     private int equipmentId;
     private int employeeId;
+
+    public int getId() {
+        return id;
+    }
 
     public Date getStartDate() {
         return startDate;

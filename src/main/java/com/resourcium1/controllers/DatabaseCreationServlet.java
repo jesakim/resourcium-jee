@@ -11,7 +11,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "DatabaseCreationServlet", value = "/creatDB",loadOnStartup = 1)
+@WebServlet(name = "DatabaseCreationServlet", value = "/creatDB")
 public class DatabaseCreationServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
